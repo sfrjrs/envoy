@@ -1,0 +1,57 @@
+
+.hero-wrap {
+    background: #fff url(/img/hero.jpg);
+    background-position: top center;
+    min-height: 42.125em;
+
+    .hero-container {
+        @include outer-container;
+        position: relative;
+
+        .hero-msg {
+            @include shift(1);
+            @include span-columns(11);
+            margin-top: 15.8em;
+            font-size: $font-base;
+
+            @include media ($medium-screen) {
+                @include shift(0);
+                @include span-columns(8);
+                @include pad(0 2em);
+            }
+
+            @include media ($large-screen) {
+                @include shift(0);
+                @include span-columns(5);
+                @include pad(0 2em);
+            }
+
+            .hero-title {
+                margin: 0 0 .4em 0;
+                font-family: $font-bold-title;
+                font-size: 3.3em;
+                color: $hero-red;
+                text-transform: uppercase;
+            }
+            .hero-desc {
+                @include pad(1em);
+                margin: 0;
+                background-color: rgba(0,0,0,.8);
+                font-size: 1.5em;
+                line-height: 1.3;
+                font-weight: 300;
+                color: $body-desc-color;
+
+                @include media ($medium-screen) {
+                    @include pad(0em);
+                    background-color: transparent;
+                    font-size: 1em;
+                }
+            }
+            a:link,
+            a:visited {
+                color: $hero-red;
+            }
+        }
+    }
+}

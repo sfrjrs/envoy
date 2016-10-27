@@ -1,0 +1,225 @@
+
+// Imports
+@import 'bourbon/bourbon';
+@import 'base/base';
+@import 'neat/neat';
+@import 'partials/_globals';
+@import 'partials/_header-nav';
+@import 'partials/_hero-area';
+
+// Generic styles
+body {
+    margin: 0;
+    background-color: $body-bg-color;
+    font-size: $font-base;
+}
+
+// Homepage specifics
+.bd-wrap {
+    .bd-container {
+        @include outer-container;
+    }
+    .intro {
+        @include shift(1);
+        @include span-columns(10);
+        @include pad(1em 0);
+        font-size: 1.8em;
+        color: $body-text-white;
+
+        @include media ($small-screen) {
+            @include shift(1);
+            @include span-columns(10);            
+        }
+
+        @include media ($medium-screen) {
+            @include shift(1);
+            @include span-columns(10);
+            margin-top: 1em;
+        }
+
+        @include media ($large-screen) {
+            @include shift(1);
+            @include span-columns(10);
+            margin-top: .5em;
+        }
+
+        .intro-title {
+            margin: 0;
+            padding-bottom: .8em;
+            border-bottom: .15em solid rgba(255,255,255, .05);
+        }
+        a:link,
+        a:visited {
+            color: $body-text-red;
+        }
+        a:hover {
+            opacity: .8;
+        }
+    }
+    .work-section {
+        @include span-columns(12);
+        font-size: $font-base;
+
+        .section-title {
+            @include shift(1);
+            @include span-columns(10);
+            margin-bottom: 1em;
+            padding-bottom: .5em;
+            font-size: 1.4em;
+            color: $body-desc-color;
+            border-bottom: .1em solid rgba(255,255,255, .02);
+
+            @include media ($medium-screen) {
+                @include shift(1);
+                @include span-columns(10);
+            }
+
+            a:link,
+            a:visited {
+                margin-left: .65em;
+                font-size: .65em;
+                color: $body-text-red;
+            }
+            a:hover {
+                opacity: .8;
+            }
+        }
+        .work-row {
+            @include row();
+            margin-bottom: 4em;
+
+            @include media ($medium-screen) {
+                @include shift(1);
+                @include span-columns(10);
+            }
+
+            .work-item {
+                @include shift(1);
+                @include span-columns(10);
+                margin-bottom: 1.8em;
+                
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                @include media ($medium-screen) {
+                    @include shift(0);
+                    @include span-columns(4);
+                }
+
+                .work-item-thumb {
+                    margin-bottom: 1em;
+                    min-height: 12em;
+                    background-size: cover;
+                    background-position: center top;
+                    background-repeat: no-repeat;
+                    display: block;
+
+                    &:hover {
+                        opacity: .9;
+                    }
+                }
+                &.boost-mobile {
+                    .work-item-thumb {                        
+                        background-image: url(/img/boost-mobile-thumb.jpg);
+                    }
+                }
+                &.pear-sports {
+                    .work-item-thumb {
+                        background-image: url(/img/pear-sports-thumb.jpg);
+                    }
+                }
+                &.five-eleven {
+                    .work-item-thumb {
+                        background-image: url(/img/five-eleven-thumb.jpg);
+                    }
+                }
+                .work-item-title {
+                    margin-bottom: .2em;
+                    color: $body-text-white;
+                    font-weight: 500;
+
+                    span {
+                        color: $body-text-seafoam;
+                    }
+                }
+                .work-item-desc {
+                    margin-bottom: .2em;
+                    color: $body-desc-color;
+                    font-size: .9em;
+                    line-height: 1.4;
+                    font-weight: 500;
+
+                    @include media ($medium-screen) {
+                        min-height: 5.5em;
+                    }
+                }
+                .work-item-url:link,
+                .work-item-url:visited {
+                    color: $body-text-red;
+                    font-size: .9em;
+                    line-height: 1.4;
+                    font-weight: 500;
+                }
+                .work-item-url:hover {
+                    opacity: .8;
+                }
+            }
+        }
+
+        .wire-row {
+            @include row();
+            margin-bottom: 4em;
+
+            @include media ($medium-screen) {
+                @include shift(1);
+                @include span-columns(10);
+            }
+
+            .wire-item {
+                @include shift(1);
+                @include span-columns(10);
+                margin-bottom: 1.8em;
+                
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                @include media ($medium-screen) {
+                    @include shift(0);
+                    @include span-columns(4);
+                }
+
+                &:last-of-type {
+                    .wire-item-title {
+                        color: $body-text-seafoam;
+                    }
+                }
+                .wire-item-title {
+                    margin-bottom: .2em;
+                    color: $body-text-white;
+                    font-weight: 600;
+                    font-size: 2.3em;
+                    line-height: .9;
+                }
+                .wire-item-date {
+                    margin-bottom: .2em;
+                    color: $body-desc-color;
+                    font-size: .9em;
+                    line-height: 1.4;
+                    font-weight: 500;
+                }
+                .wire-item-url:link,
+                .wire-item-url:visited {
+                    color: $body-text-red;
+                    font-size: .9em;
+                    line-height: 1.4;
+                    font-weight: 500;
+                }
+                .wire-item-url:hover {
+                    opacity: .8;
+                }
+            }
+        }
+    }
+}
