@@ -1,0 +1,6 @@
+
+# Cache files
+.sass-cache
+
+# Dependency directories
+node_modules

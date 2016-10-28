@@ -4,6 +4,7 @@ var sass = require('gulp-sass');
 var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
+var browserSync = require('browser-sync').create();
 
 //
 // Task: Minify CSS
@@ -23,3 +24,19 @@ gulp.task('scripts-min', function() {
     .pipe(uglify())
     .pipe(gulp.dest('scripts'));
 });
+
+//
+// Task: Spin up server
+gulp.task('serve', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+    gulp.watch("stylesheets/scss/*.scss", ['sass']);
+    gulp.watch("./*.html").on('change', browserSync.reload);
+});
+
+//
+// Task: Default
+gulp.task('default', ['serve']);
