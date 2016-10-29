@@ -22,8 +22,8 @@ $(window).resize(function() {
 $(document).ready(function() {
   var menuToggle = $("#js-mobile-menu").unbind();
   var navMenu = $("#js-navigation-menu");
-  $(navMenu).removeClass("show");
 
+  $(navMenu).removeClass("show");
   menuToggle.on("click", function(e) {
     e.preventDefault();
     $(navMenu).slideToggle(function(){

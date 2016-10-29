@@ -6,9 +6,11 @@
         <title>Envoy Test</title>
         <meta name="description" content="This is a test of the emergency broadcast system">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="/stylesheets/css/home.min.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+        <!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />-->
+        <link rel="stylesheet" type="text/css" href="/stylesheets/css/home.min.css" />
     </head>
     <body>
 
@@ -50,13 +52,37 @@
         <!-- End: Header Navigation //-->
 
         <!-- Start: Hero Section -->
-        <section class="hero-wrap" id="hero">
-            <div class="hero-container">
-                <header class="hero-msg">
-                    <h1 class="hero-title">The iPhone Unchained.</h1>
-                    <h2 class="hero-desc">Tarantino’s outrageous film Djano Unchained needed an equally in your face mobile experience. Bloody good awesomeness ensued. <a href="#">View&nbsp;Project</a></h2>
-                </header>
+        <section class="hero-wrap">
+            <div class="hero-slider">
+                <div class="hero-slider-item">
+                    <div class="hero-container">
+                        <header class="hero-msg">
+                            <h1 class="hero-title">The iPhone Unchained.</h1>
+                            <h2 class="hero-desc">Tarantino’s outrageous film Djano Unchained needed an equally in your face mobile experience. Bloody good awesomeness ensued. <a href="#">View&nbsp;Project</a></h2>
+                        </header>
+                    </div>
+                </div>
+                <div class="hero-slider-item">
+                    <div class="hero-container">
+                        <header class="hero-msg">
+                            <h1 class="hero-title">Slide Number Two</h1>
+                            <h2 class="hero-desc">Tarantino’s outrageous film Djano Unchained needed an equally in your face mobile experience. Bloody good awesomeness ensued. <a href="#">View&nbsp;Project</a></h2>
+                        </header>
+                    </div>
+                </div>
+                <div class="hero-slider-item">
+                    <div class="hero-container">
+                        <header class="hero-msg">
+                            <h1 class="hero-title">Slide Number Three</h1>
+                            <h2 class="hero-desc">Tarantino’s outrageous film Djano Unchained needed an equally in your face mobile experience. Bloody good awesomeness ensued. <a href="#">View&nbsp;Project</a></h2>
+                        </header>
+                    </div>
+                </div>
             </div>
+            <section class="nav-wrap">
+                <div class="hero-slider-navdots-wrap"></div>
+                <div class="hero-slider-nav-wrap"></div>
+            </section>
         </section>
         <!-- End: Hero Section //-->
 
@@ -127,7 +153,23 @@
         <!-- End: Body Content Area //-->
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script src="/scripts/main.min.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+        <script type="text/javascript" src="/scripts/main.min.js"></script>
+        <script>
+            $(function () {
+                var carouselEle = $(".hero-slider");
+                var carouselDotsBtnWrap = $(".hero-slider-navdots-wrap");
+                var carouselPrevNextBtnWrap = $(".hero-slider-nav-wrap");
+                $(carouselEle).slick({
+                    infinite: false,
+                    dots: true,
+                    appendDots: carouselDotsBtnWrap,
+                    prevArrow: "<i class='fa fa-angle-left fa-3x' aria-hidden='true'></i>",
+                    nextArrow: "<i class='fa fa-angle-right fa-3x' aria-hidden='true'></i>",
+                    appendArrows: carouselPrevNextBtnWrap
+                });
+            });
+        </script>
 
     </body>
 </html>
