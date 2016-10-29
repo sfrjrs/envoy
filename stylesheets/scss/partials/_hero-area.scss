@@ -45,6 +45,10 @@
         }
         .slick-arrow {
             color: $body-text-red;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
         .slick-arrow.slick-disabled {
             color: $body-text-white;
