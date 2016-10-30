@@ -7,9 +7,209 @@
             z-index: 9999;
         }
         .hero-slider-item {
-            background: #fff url(/img/hero.jpg);
-            background-position: top center;
-            min-height: 42.125em;
+            .hero-container {
+                @include outer-container;
+                position: relative;
+
+                .hero-msg {
+                    font-size: $font-base;
+
+                    .hero-title {
+                        margin: 0 0 .4em 0;
+                        font-family: $font-bold-title;
+                        text-transform: uppercase;
+                    }
+                    .hero-desc {
+                        margin: 0;
+                        line-height: 1.3;
+                        font-weight: 300;
+                    }
+                }
+            }
+
+            &.django {
+                background: url(/img/hero.jpg);
+                background-position: top center;
+                min-height: 42.125em;
+
+                .hero-container {
+                    .hero-msg {
+                        @include shift(1);
+                        @include span-columns(11);
+                        margin-top: 15.8em;
+
+                        @include media ($medium-screen) {
+                            @include shift(0);
+                            @include span-columns(8);
+                            @include pad(0 2em);
+                        }
+
+                        @include media ($extra-lg-screen) {
+                            @include shift(0);
+                            @include span-columns(5);
+                            @include pad(0 2em);
+                        }
+
+                        .hero-title {
+                            color: $hero-red;
+                            font-size: 3.3em;
+
+                            @include media ($large-screen) {
+                                margin-right: 5em;
+                            }
+
+                            @include media ($extra-lg-screen) {
+                                margin: 0;
+                            }
+                        }
+                        .hero-desc {
+                            @include pad(1em);
+                            background-color: rgba(0,0,0,.8);
+                            color: $body-desc-color;
+                            font-size: 1.5em;
+
+                            @include media ($medium-screen) {
+                                @include pad(0em);
+                                margin-right: 13em;
+                                background-color: transparent;
+                                font-size: 1em;
+                            }
+
+                            @include media ($large-screen) {
+                                margin-right: 17em;
+                            }
+
+                            @include media ($extra-lg-screen) {
+                                margin-right: 0;
+                            }
+                        }
+                        a:link,
+                        a:visited {
+                            color: $hero-red;
+                        }
+                    }
+                }
+            }
+            &.vizio {
+                background: url(/img/hero-vizio.jpg);
+                background-position: top center;
+                background-size: cover;
+
+                @include media ($medium-screen) {
+                    min-height: 42.125em;
+                }
+
+                .hero-container {
+                    .hero-msg {
+                        @include shift(0);
+                        @include span-columns(12);
+                        @include pad(1.6em);
+                        margin: 0;
+
+                        @include media ($medium-screen) {
+                            margin: 8em 9em 0 0;
+                        }
+
+                        @include media ($large-screen) {
+                            margin: 7em 9em 0 0;
+                        }                        
+
+                        .hero-title {
+                            margin: .5em 0;
+                            color: $hero-red;
+                            font-size: 3.3em;
+                            text-align: right;
+
+                            @include media ($medium-screen) {
+                                margin: 0 0 .3em 5em;
+                            }
+
+                            @include media ($large-screen) {
+                                margin: 0 1em .3em 8em;
+                            }
+
+                            @include media ($extra-lg-screen) {
+                                margin: 0 3em .3em 9em;
+                            }
+                        }
+                        .hero-desc {
+                            margin-bottom: 11em;
+                            text-align: right;
+
+                            span {
+                                display: none;
+                            }
+
+                            @include media ($medium-screen) {
+                                margin: 0 0 .5em 22em;
+                                font-size: 1em;
+
+                                span {
+                                    display: block;
+                                }
+                            }
+
+                            @include media ($large-screen) {
+                                margin: 0 3.5em 0 30em;
+                            }
+
+                            @include media ($extra-lg-screen) {
+                                margin: 0 10em 0 40em;
+                            }
+                        }
+                        a:link,
+                        a:visited {
+                            color: $hero-red;
+                        }
+                    }
+                }
+            }
+            &.escape {
+                background: url(/img/hero-escape.jpg);
+                background-position: top center;
+
+                .hero-container {
+                    .hero-msg {
+                        margin: 8em 9em 0 0;
+
+                        .hero-title {
+                            color: $escape-orange;
+                            font-size: 3.3em;
+                        }
+                        .hero-desc {
+                            color: $body-text-white;
+                            font-size: 1em;
+                        }
+                        a:link,
+                        a:visited {
+                            color: $escape-orange;
+                        }
+                    }
+                }
+            }
+            &.ultra {
+                background: url(/img/hero-ultra.jpg);
+                background-position: top center;
+
+                .hero-container {
+                    .hero-msg {
+                        margin: 8.5em 0 0 0;
+
+                        .hero-title {
+                            color: $ultra-blue;
+                            font-size: 3.3em;
+                        }
+                        .hero-desc {
+                            color: $body-desc-color;
+                            font-size: 1em;
+                        }
+                        a:link,
+                        a:visited {
+                            color: $ultra-blue;
+                        }
+                    }
+                }
+            }
         }
     }
     .nav-wrap {
@@ -18,10 +218,6 @@
         margin-top: -4em;
         text-align: center;
         z-index: 9999;
-
-        @include media ($small-screen) {
-            margin-top: -5em;
-        }
     }
     .hero-slider-nav-wrap,
     .hero-slider-navdots-wrap {
@@ -29,11 +225,14 @@
         bottom: 1.8em;
         z-index: 9999;
     }
+
+    //
+    // Slider nav arrows
     .hero-slider-nav-wrap {
         @include span-columns(6);
         @include shift(0);
 
-        @include media ($small-screen) {
+        @include media ($medium-screen) {
             @include span-columns(2);
             @include shift(2);
         }
@@ -54,95 +253,70 @@
             color: $body-text-white;
         }
     }
+
+    //
+    // Slider nav dots
     .hero-slider-navdots-wrap {
         @include span-columns(6);
         @include shift(0);
 
-        @include media ($small-screen) {
+        @include media ($medium-screen) {
             @include span-columns(2);
             @include shift(5);
         }
 
-        .slick-dots li {
-            margin: 1.157em 0;
-            display: inline-block;
+        .slick-dots {
+            li {
+                margin: 1.157em 0;
+                display: inline-block;
 
-            button {
-                font-size: 0;
-                line-height: 0;
-                display: block;
-                width: 11px;
-                height: 11px;
-                margin: 0 6px;
-                padding: 5px;
-                cursor: pointer;
-                color: transparent;
-                border: 0;
-                outline: none;
-                background: $body-text-white;
-                border-radius: 50%;
-            }
-
-            &:hover {
                 button {
-                    background: $body-desc-color;
+                    font-size: 0;
+                    line-height: 0;
+                    display: block;
+                    width: 11px;
+                    height: 11px;
+                    margin: 0 6px;
+                    padding: 5px;
+                    cursor: pointer;
+                    color: transparent;
+                    border: 0;
+                    outline: none;
+                    background: $body-text-white;
+                    border-radius: 50%;
+                }
+
+                &:hover {
+                    button {
+                        background: $body-desc-color;
+                    }
+                }
+
+                &.slick-active {
+                    button {
+                        background: $body-text-red;
+                    }
                 }
             }
 
-            &.slick-active {
-                button {
-                    background: $body-text-red;
+            &.vizio {
+                li {
+                    button {
+                        background: $body-desc-color;
+                    }
+                    
+                    &:hover {
+                        button {
+                            background: rgba($body-desc-color, .6);
+                        }
+                    }
+
+                    &.slick-active {
+                        button {
+                            background: $body-text-red;
+                        }
+                    }
                 }
-            }
-        }
-    }
-    .hero-container {
-        @include outer-container;
-        position: relative;
-
-        .hero-msg {
-            @include shift(1);
-            @include span-columns(11);
-            margin-top: 15.8em;
-            font-size: $font-base;
-
-            @include media ($medium-screen) {
-                @include shift(0);
-                @include span-columns(8);
-                @include pad(0 2em);
-            }
-
-            @include media ($large-screen) {
-                @include shift(0);
-                @include span-columns(5);
-                @include pad(0 2em);
-            }
-
-            .hero-title {
-                margin: 0 0 .4em 0;
-                font-family: $font-bold-title;
-                font-size: 3.3em;
-                color: $hero-red;
-                text-transform: uppercase;
-            }
-            .hero-desc {
-                @include pad(1em);
-                margin: 0;
-                background-color: rgba(0,0,0,.8);
-                font-size: 1.5em;
-                line-height: 1.3;
-                font-weight: 300;
-                color: $body-desc-color;
-
-                @include media ($medium-screen) {
-                    @include pad(0em);
-                    background-color: transparent;
-                    font-size: 1em;
-                }
-            }
-            a:link,
-            a:visited {
-                color: $hero-red;
             }
         }
     }
