@@ -67,16 +67,15 @@
                             }
                         }
                         .hero-desc {
-                            @include pad(1em);
-                            background-color: rgba(0,0,0,.8);
-                            color: $body-desc-color;
+                            @include pad(0 1em 0 0);
+                            color: $body-text-white;
                             font-size: 1.5em;
 
                             @include media ($medium-screen) {
                                 @include pad(0em);
                                 margin-right: 13em;
-                                background-color: transparent;
                                 font-size: 1em;
+                                color: $body-desc-color;
                             }
 
                             @include media ($large-screen) {
@@ -98,10 +97,7 @@
                 background: url(/img/hero-vizio.jpg);
                 background-position: top center;
                 background-size: cover;
-
-                @include media ($medium-screen) {
-                    min-height: 42.125em;
-                }
+                min-height: 42.125em;
 
                 .hero-container {
                     .hero-msg {
@@ -143,7 +139,7 @@
                             color: $body-desc-color;
 
                             @include media ($medium-screen) {
-                                margin: 0 0 .5em 22em;
+                                margin: 0 0 .5em 21.8em;
                                 font-size: 1em;
 
                                 span {
@@ -152,7 +148,7 @@
                             }
 
                             @include media ($large-screen) {
-                                margin: 0 3.5em 0 30em;
+                                margin: 0 3.5em 0 29.8em;
                             }
 
                             @include media ($extra-lg-screen) {
@@ -170,10 +166,11 @@
                 background: url(/img/hero-escape.jpg);
                 background-position: 72em top;
                 background-size: cover;
+                min-height: 42.125em;
 
                 @include media ($medium-screen) {
                     background-position: -20em top;
-                    min-height: 42.125em;
+                    //min-height: 42.125em;
                 }
 
                 @include media ($extra-lg-screen) {
@@ -245,10 +242,11 @@
                 background: url(/img/hero-ultra.jpg);
                 background-position: 54em top;
                 background-size: cover;
+                min-height: 42.125em;
 
                 @include media ($medium-screen) {
                     background-position: -20em top;
-                    min-height: 42.125em;
+                    //min-height: 42.125em;
                 }
 
                 @include media ($extra-lg-screen) {

@@ -20,23 +20,21 @@ body {
         @include outer-container;
     }
     .intro {
-        @include shift(1);
-        @include span-columns(10);
-        @include pad(1em 0);
-        //margin-top: 2.5em;
-        font-size: 1.8em;
+        @include pad(4em 1.4em 1em);
+        font-size: 1.4em;
         color: $body-text-white;
 
         @include media ($medium-screen) {
-            @include shift(1);
-            @include span-columns(10);
-            margin-top: 1em;
+            @include pad(1.8em 2.1em 1em);
+            font-size: 1.8em;
         }
 
         @include media ($large-screen) {
-            @include shift(1);
-            @include span-columns(10);
-            margin-top: .5em;
+            @include pad(1.8em 3em 1em);
+        }
+
+        @include media ($extra-lg-screen) {
+            @include pad(1.8em 3.5em 1em);
         }
 
         .intro-title {
